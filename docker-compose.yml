@@ -1,0 +1,36 @@
+version: "3.7"
+
+services:
+  admin:
+    image: nginx:1.25.3
+    restart: unless-stopped
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./app/api:/api
+      - ./app/admin:/admin
+      - ./configs/nginx:/etc/nginx/conf.d:ro
+    networks:
+      - mms
+
+  api:
+    build: docker/php
+    restart: unless-stopped
+    expose:
+      - 9000
+    volumes:
+      - ./app/api:/api
+    networks:
+      - mms
+
+  tools:
+    build: docker/tools
+    volumes:
+      - ./app/api:/api
+    networks:
+      - mms
+
+networks:
+  mms:
+    driver: bridge
