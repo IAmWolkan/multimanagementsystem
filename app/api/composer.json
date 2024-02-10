@@ -4,7 +4,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Multimanagementsystem\\App\\": "src/"
+            "MMS\\App\\": "src/"
         }
     },
     "authors": [
@@ -12,5 +12,7 @@
             "name": "Daniel Wollbro"
         }
     ],
-    "require": {}
+    "require": {
+        "rdlowrey/auryn": "^1.4"
+    }
 }
