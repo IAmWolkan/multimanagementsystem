@@ -15,6 +15,7 @@
     "require": {
         "rdlowrey/auryn": "^1.4",
         "symfony/http-foundation": "^7.0",
-        "monolog/monolog": "^3.5"
+        "monolog/monolog": "^3.5",
+        "consolidation/robo": "^4.0"
     }
 }
