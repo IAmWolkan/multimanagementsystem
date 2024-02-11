@@ -6,5 +6,7 @@
  */
 class RoboFile extends \Robo\Tasks
 {
-    // define public methods as commands
+    public function testUnit() {
+        $this->taskExec('vendor/bin/phpunit tests/Unit')->run();
+    }
 }
