@@ -21,15 +21,41 @@ services:
       - 9000
     volumes:
       - ./app/api:/api
+      - ./configs/system/dev.yml:/api/config.yml:ro
     networks:
       - mms
 
   tools:
     build: docker/tools
+    restart: unless-stopped
     volumes:
       - ./app/api:/api
+      - ./configs/system/dev.yml:/api/config.yml:ro
     networks:
       - mms
+
+  db:
+    image: mysql:8.3.0
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - db:/var/lib/mysql
+    networks:
+      - mms
+
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - 8080:80
+    environment:
+      - PMA_ARBITRARY=1
+    networks:
+      - mms
+
+volumes:
+  db:
 
 networks:
   mms:
