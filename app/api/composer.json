@@ -4,7 +4,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "MMS\\App\\": "src/"
+            "MMS\\Api\\": "src/"
         }
     },
     "authors": [
@@ -13,6 +13,8 @@
         }
     ],
     "require": {
-        "rdlowrey/auryn": "^1.4"
+        "rdlowrey/auryn": "^1.4",
+        "symfony/http-foundation": "^7.0",
+        "monolog/monolog": "^3.5"
     }
 }
