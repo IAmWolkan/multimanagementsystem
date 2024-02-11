@@ -1,0 +1,10 @@
+environment: dev
+
+database:
+  host: db
+  dbname: mms
+  username: root
+  password: root
+
+logger:
+  name: api
